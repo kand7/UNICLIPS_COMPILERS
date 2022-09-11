@@ -1,0 +1,94 @@
+Line=1		Token=UN		Value=@"\"		 @
+Line=2		Token=UN		Value=@	"""@
+Line=3		Token=STRINGS		Value=@  "       "@
+Line=4		Token=STRINGS		Value=@  " \\ \n \""@
+Line=5		Token=STRINGS		Value=@"Hello"@
+Line=7		Token=INTS		Value=@                 +5             @
+Line=8		Token=INTS		Value=@-10@
+Line=9		Token=UN		Value=@011@
+Line=10		Token=INTS		Value=@45@
+Line=11		Token=INTS		Value=@68@
+Line=12		Token=INTS		Value=@-43@
+Line=13		Token=INTS		Value=@+98@
+Line=14		Token=UN		Value=@++45@
+Line=15		Token=UN		Value=@--45@
+Line=16		Token=INTS		Value=@+78@
+Line=17		Token=INTS		Value=@+23@
+Line=18		Token=INTS		Value=@90@
+Line=19		Token=INTS		Value=@123@
+Line=20		Token=INTS		Value=@87@
+Line=21		Token=INTS		Value=@12@
+Line=22		Token=INTS		Value=@65@
+Line=23		Token=INTS		Value=@+8@
+Line=24		Token=INTS		Value=@-76@
+Line=25		Token=UN		Value=@---456@
+Line=28		Token=FLOATS		Value=@45.6@
+Line=29		Token=FLOATS		Value=@23.6@
+Line=30		Token=FLOATS		Value=@0.5@
+Line=31		Token=INTS		Value=@+43@
+Line=32		Token=FLOATS		Value=@3e34@
+Line=33		Token=FLOATS		Value=@0.45@
+Line=34		Token=UN		Value=@--3.14@
+Line=35		Token=FLOATS		Value=@3.14@
+Line=36		Token=FLOATS		Value=@+0.004@
+Line=37		Token=FLOATS		Value=@54.5e-11@
+Line=38		Token=FLOATS		Value=@0.9@
+Line=39		Token=UN		Value=@++32.4@
+Line=40		Token=FLOATS		Value=@34.7@
+Line=41		Token=UN		Value=@87.0e@
+Line=42		Token=FLOATS		Value=@0e0@
+Line=43		Token=NAMES		Value=@e10@
+Line=44		Token=FLOATS		Value=@45.67@
+Line=47		Token=VARS		Value=@?ewfwe@
+Line=48		Token=VARS		Value=@?tyrtje@
+Line=49		Token=VARS		Value=@?567536hsfrtgaer@
+Line=50		Token=VARS		Value=@?45643@
+Line=51		Token=VARS		Value=@?7irtyt@
+Line=52		Token=VARS		Value=@?75iuyie@
+Line=53		Token=UN		Value=@?^74435t64%%%$&@
+Line=54		Token=VARS		Value=@?2345wgdgfshgJBUWYEFBUY@
+Line=55		Token=UN		Value=@?4534g+__345435@
+Line=56		Token=UN		Value=@?|}GERGERGw@
+Line=57		Token=UN		Value=@?345254$$$$@
+Line=58		Token=VARS		Value=@?varws21@
+Line=59		Token=UN		Value=@?|#@$%%@
+Line=60		Token=UN		Value=@?~!XS@
+Line=61		Token=UN		Value=@?123&&#$Y$TRHW@
+Line=62		Token=VARS		Value=@?235gdgeqrtgerq@
+Line=63		Token=VARS		Value=@?41234ffwfd@
+Line=64		Token=VARS		Value=@?ABC@
+Line=65		Token=VARS		Value=@?443@
+Line=66		Token=UN		Value=@?()()()()()@
+Line=69		Token=STRINGS		Value=@"Hello"@
+Line=70		Token=UN		Value=@"cOMPILERS 432424   \N"@
+Line=71		Token=STRINGS		Value=@"test\n\""@
+Line=72		Token=STRINGS		Value=@"Str    ing"@
+Line=73		Token=STRINGS		Value=@""@
+Line=74		Token=STRINGS		Value=@"   "@
+Line=75		Token=STRINGS		Value=@"\\\\\\\""@
+Line=76		Token=STRINGS		Value=@"name"@
+Line=77		Token=UN		Value=@"erga s i    s \t"@
+Line=78		Token=UN		Value=@"String" + "Concat"@
+Line=79		Token=STRINGS		Value=@"afasdfasdfasfasf"@
+Line=80		Token=STRINGS		Value=@"afdasfasf\\n"@
+Line=81		Token=UN		Value=@""""""""""@
+Line=83		Token=NAMES		Value=@variable-1@
+Line=84		Token=NAMES		Value=@disdiastatos-pinakas@
+Line=85		Token=UN		Value=@tatic\facts@
+Line=86		Token=UN		Value=@Ammount\@
+Line=87		Token=NAMES		Value=@TAVLI12@
+Line=90		Token=UN		Value=@v?567536_hsfrtgaer@
+Line=92		Token=NAMES		Value=@werftw@
+Line=93		Token=UN		Value=@f c eg@
+Line=94		Token=NAMES		Value=@X14123-5refve@
+Line=95		Token=NAMES		Value=@ JKniub@
+Line=96		Token=UN		Value=@ @
+Line=97		Token=NAMES		Value=@ggfd2435346@
+Line=98		Token=UN		Value=@3456ERGTDBFGJ?>?ytu@
+Line=99		Token=UN		Value=@VCBRTEERTY%$#$%#RE@
+Line=100		Token=UN		Value=@234-asd_VSDFV?ytry@
+Line=101		Token=UN		Value=@342534234fsdsdfsd@
+Line=102		Token=UN		Value=@5345egfd@
+Line=103		Token=NAMES		Value=@df@
+Line=104		Token=NAMES		Value=@rf@
+Line=105		Token=NAMES		Value=@KJIBUY@

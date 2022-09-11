@@ -1,0 +1,5 @@
+START = B0
+B0: 	\s \t -> B0
+	\n EOF-> GOOD
+	* -> BAD
+GOOD(OK):

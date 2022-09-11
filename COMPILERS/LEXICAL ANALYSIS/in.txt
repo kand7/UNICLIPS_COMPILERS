@@ -1,0 +1,105 @@
+"\"		 
+	"""
+  "       "
+  " \\ \n \""
+"Hello"
+; INTS
+                 +5             
+-10
+011
+45
+68
+-43
++98
+++45
+--45
++78
++23
+90
+123
+87
+12
+65
++8
+-76
+---456
+
+; FLOATS
+45.6
+23.6
+0.5
++43
+3e34
+0.45
+--3.14
+3.14
++0.004
+54.5e-11
+0.9
+++32.4
+34.7
+87.0e
+0e0
+e10
+45.67
+
+; VARS
+?ewfwe
+?tyrtje
+?567536hsfrtgaer
+?45643
+?7irtyt
+?75iuyie
+?^74435t64%%%$&
+?2345wgdgfshgJBUWYEFBUY
+?4534g+__345435
+?|}GERGERGw
+?345254$$$$
+?varws21
+?|#@$%%
+?~!XS
+?123&&#$Y$TRHW
+?235gdgeqrtgerq
+?41234ffwfd
+?ABC
+?443
+?()()()()()
+
+; STRINGS
+"Hello"
+"cOMPILERS 432424   \N"
+"test\n\""
+"Str    ing"
+""
+"   "
+"\\\\\\\""
+"name"
+"erga s i    s \t"
+"String" + "Concat"
+"afasdfasdfasfasf"
+"afdasfasf\\n"
+""""""""""
+; NAMES
+variable-1
+disdiastatos-pinakas
+tatic\facts
+Ammount\
+TAVLI12
+
+
+v?567536_hsfrtgaer
+
+werftw
+f c eg
+X14123-5refve
+ JKniub
+ 
+ggfd2435346
+3456ERGTDBFGJ?>?ytu
+VCBRTEERTY%$#$%#RE
+234-asd_VSDFV?ytry
+342534234fsdsdfsd
+5345egfd
+df
+rf
+KJIBUY

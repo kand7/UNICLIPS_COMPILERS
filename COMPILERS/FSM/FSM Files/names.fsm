@@ -1,0 +1,12 @@
+START = NAME1
+
+NAME1:	A-Z a-z -> NAME2
+	* -> bad
+
+NAME2:	A-Z a-z -> NAME2
+	0-9 -> NAME2
+	- -> NAME2
+	_ -> NAME2
+	* -> BAD
+	\n -> GOOD
+GOOD(OK):

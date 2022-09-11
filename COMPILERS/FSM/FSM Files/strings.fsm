@@ -1,0 +1,17 @@
+START = S1
+
+S1: 	" -> S2
+	* -> BAD
+
+S2: 	\\ -> S3
+	" -> S4
+	* -> S2
+
+S3: 	\\ -> S2
+	" -> S2
+	n -> S2
+	* -> BAD
+
+S4: 	\n -> GOOD
+	* -> BADayt
+GOOD(OK):

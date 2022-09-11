@@ -1,0 +1,1175 @@
+Nonterminals useless in grammar
+
+    names
+    ints
+    vars
+
+
+Terminals unused in grammar
+
+    FLOATS
+
+
+Rules useless in grammar
+
+   50 names: NAMES
+
+   51 ints: INTS
+
+   52 vars: VARS
+
+
+State 32 conflicts: 1 shift/reduce
+State 36 conflicts: 1 shift/reduce
+State 54 conflicts: 3 shift/reduce
+State 70 conflicts: 2 shift/reduce
+State 84 conflicts: 1 shift/reduce
+State 89 conflicts: 2 shift/reduce
+State 93 conflicts: 2 shift/reduce
+State 97 conflicts: 4 shift/reduce
+State 99 conflicts: 2 shift/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program NL
+    2        | program events NL
+    3        | program deffacts NL
+    4        | program defrule NL
+    5        | program maths NL
+    6        | program comp NL
+    7        | program test NL
+    8        | program bind NL
+    9        | program printout NL
+   10        | program error NL
+   11        | %empty
+
+   12 elements: NAMES
+   13         | INTS
+   14         | VARS
+   15         | elements elements
+
+   16 events: BRACKETOPEN elements BRACKETCLOSE
+   17       | events events
+
+   18 deffacts_events: BRACKETOPEN elements BRACKETCLOSE
+   19                | deffacts_events deffacts_events
+   20                | deffacts_events NL deffacts_events
+
+   21 deffacts: BRACKETOPEN DEFFACTS NAMES NL deffacts_events BRACKETCLOSE
+
+   22 print_contents: VARS
+   23               | INTS
+   24               | NAMES
+   25               | STRINGS
+   26               | print_contents print_contents
+
+   27 print_event: BRACKETOPEN print_contents BRACKETCLOSE
+   28            | print_event print_event
+
+   29 printout: BRACKETOPEN PRINTOUT NAMES print_event BRACKETCLOSE
+   30         | printout printout
+
+   31 type: VARS
+   32     | INTS
+
+   33 comp: BRACKETOPEN EQUALS type type BRACKETCLOSE
+   34     | BRACKETOPEN EQUALS type maths BRACKETCLOSE
+   35     | BRACKETOPEN EQUALS maths type BRACKETCLOSE
+
+   36 test: BRACKETOPEN TEST comp BRACKETCLOSE
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL ARROW NL printout BRACKETCLOSE
+
+   38 math_ops: PLUSOP
+   39         | MINUSOP
+   40         | MULTOP
+   41         | DIVOP
+
+   42 math_elements: VARS
+   43              | INTS
+   44              | math_elements math_elements
+
+   45 maths: BRACKETOPEN math_ops math_elements math_elements BRACKETCLOSE
+
+   46 read: BRACKETOPEN READ BRACKETCLOSE
+
+   47 bind: BRACKETOPEN BIND VARS read BRACKETCLOSE
+   48     | BRACKETOPEN BIND VARS INTS BRACKETCLOSE
+   49     | BRACKETOPEN BIND VARS maths BRACKETCLOSE
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256) 10
+    ARROW (258) 37
+    BRACKETOPEN (259) 16 18 21 27 29 33 34 35 36 37 45 46 47 48 49
+    BRACKETCLOSE (260) 16 18 21 27 29 33 34 35 36 37 45 46 47 48 49
+    DEFFACTS (261) 21
+    DEFRULE (262) 37
+    TEST (263) 36
+    BIND (264) 47 48 49
+    READ (265) 46
+    PRINTOUT (266) 29
+    EQUALS (267) 33 34 35
+    PLUSOP (268) 38
+    MINUSOP (269) 39
+    MULTOP (270) 40
+    DIVOP (271) 41
+    INTS (272) 13 23 32 43 48
+    FLOATS (273)
+    NAMES (274) 12 21 24 29 37
+    VARS (275) 14 22 31 42 47 48 49
+    STRINGS (276) 25
+    NL (277) 1 2 3 4 5 6 7 8 9 10 20 21 37
+
+
+Nonterminals, with rules where they appear
+
+    $accept (23)
+        on left: 0
+    program (24)
+        on left: 1 2 3 4 5 6 7 8 9 10 11
+        on right: 0 1 2 3 4 5 6 7 8 9 10
+    elements (25)
+        on left: 12 13 14 15
+        on right: 15 16 18
+    events (26)
+        on left: 16 17
+        on right: 2 17 37
+    deffacts_events (27)
+        on left: 18 19 20
+        on right: 19 20 21
+    deffacts (28)
+        on left: 21
+        on right: 3
+    print_contents (29)
+        on left: 22 23 24 25 26
+        on right: 26 27
+    print_event (30)
+        on left: 27 28
+        on right: 28 29
+    printout (31)
+        on left: 29 30
+        on right: 9 30 37
+    type (32)
+        on left: 31 32
+        on right: 33 34 35
+    comp (33)
+        on left: 33 34 35
+        on right: 6 36
+    test (34)
+        on left: 36
+        on right: 7 37
+    defrule (35)
+        on left: 37
+        on right: 4
+    math_ops (36)
+        on left: 38 39 40 41
+        on right: 45
+    math_elements (37)
+        on left: 42 43 44
+        on right: 44 45
+    maths (38)
+        on left: 45
+        on right: 5 34 35 49
+    read (39)
+        on left: 46
+        on right: 47
+    bind (40)
+        on left: 47 48 49
+        on right: 8
+
+
+State 0
+
+    0 $accept: . program $end
+
+    $default  reduce using rule 11 (program)
+
+    program  go to state 1
+
+
+State 1
+
+    0 $accept: program . $end
+    1 program: program . NL
+    2        | program . events NL
+    3        | program . deffacts NL
+    4        | program . defrule NL
+    5        | program . maths NL
+    6        | program . comp NL
+    7        | program . test NL
+    8        | program . bind NL
+    9        | program . printout NL
+   10        | program . error NL
+
+    $end         shift, and go to state 2
+    error        shift, and go to state 3
+    BRACKETOPEN  shift, and go to state 4
+    NL           shift, and go to state 5
+
+    events    go to state 6
+    deffacts  go to state 7
+    printout  go to state 8
+    comp      go to state 9
+    test      go to state 10
+    defrule   go to state 11
+    maths     go to state 12
+    bind      go to state 13
+
+
+State 2
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+State 3
+
+   10 program: program error . NL
+
+    NL  shift, and go to state 14
+
+
+State 4
+
+   16 events: BRACKETOPEN . elements BRACKETCLOSE
+   21 deffacts: BRACKETOPEN . DEFFACTS NAMES NL deffacts_events BRACKETCLOSE
+   29 printout: BRACKETOPEN . PRINTOUT NAMES print_event BRACKETCLOSE
+   33 comp: BRACKETOPEN . EQUALS type type BRACKETCLOSE
+   34     | BRACKETOPEN . EQUALS type maths BRACKETCLOSE
+   35     | BRACKETOPEN . EQUALS maths type BRACKETCLOSE
+   36 test: BRACKETOPEN . TEST comp BRACKETCLOSE
+   37 defrule: BRACKETOPEN . DEFRULE NAMES NL events NL test NL ARROW NL printout BRACKETCLOSE
+   45 maths: BRACKETOPEN . math_ops math_elements math_elements BRACKETCLOSE
+   47 bind: BRACKETOPEN . BIND VARS read BRACKETCLOSE
+   48     | BRACKETOPEN . BIND VARS INTS BRACKETCLOSE
+   49     | BRACKETOPEN . BIND VARS maths BRACKETCLOSE
+
+    DEFFACTS  shift, and go to state 15
+    DEFRULE   shift, and go to state 16
+    TEST      shift, and go to state 17
+    BIND      shift, and go to state 18
+    PRINTOUT  shift, and go to state 19
+    EQUALS    shift, and go to state 20
+    PLUSOP    shift, and go to state 21
+    MINUSOP   shift, and go to state 22
+    MULTOP    shift, and go to state 23
+    DIVOP     shift, and go to state 24
+    INTS      shift, and go to state 25
+    NAMES     shift, and go to state 26
+    VARS      shift, and go to state 27
+
+    elements  go to state 28
+    math_ops  go to state 29
+
+
+State 5
+
+    1 program: program NL .
+
+    $default  reduce using rule 1 (program)
+
+
+State 6
+
+    2 program: program events . NL
+   17 events: events . events
+
+    BRACKETOPEN  shift, and go to state 30
+    NL           shift, and go to state 31
+
+    events  go to state 32
+
+
+State 7
+
+    3 program: program deffacts . NL
+
+    NL  shift, and go to state 33
+
+
+State 8
+
+    9 program: program printout . NL
+   30 printout: printout . printout
+
+    BRACKETOPEN  shift, and go to state 34
+    NL           shift, and go to state 35
+
+    printout  go to state 36
+
+
+State 9
+
+    6 program: program comp . NL
+
+    NL  shift, and go to state 37
+
+
+State 10
+
+    7 program: program test . NL
+
+    NL  shift, and go to state 38
+
+
+State 11
+
+    4 program: program defrule . NL
+
+    NL  shift, and go to state 39
+
+
+State 12
+
+    5 program: program maths . NL
+
+    NL  shift, and go to state 40
+
+
+State 13
+
+    8 program: program bind . NL
+
+    NL  shift, and go to state 41
+
+
+State 14
+
+   10 program: program error NL .
+
+    $default  reduce using rule 10 (program)
+
+
+State 15
+
+   21 deffacts: BRACKETOPEN DEFFACTS . NAMES NL deffacts_events BRACKETCLOSE
+
+    NAMES  shift, and go to state 42
+
+
+State 16
+
+   37 defrule: BRACKETOPEN DEFRULE . NAMES NL events NL test NL ARROW NL printout BRACKETCLOSE
+
+    NAMES  shift, and go to state 43
+
+
+State 17
+
+   36 test: BRACKETOPEN TEST . comp BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 44
+
+    comp  go to state 45
+
+
+State 18
+
+   47 bind: BRACKETOPEN BIND . VARS read BRACKETCLOSE
+   48     | BRACKETOPEN BIND . VARS INTS BRACKETCLOSE
+   49     | BRACKETOPEN BIND . VARS maths BRACKETCLOSE
+
+    VARS  shift, and go to state 46
+
+
+State 19
+
+   29 printout: BRACKETOPEN PRINTOUT . NAMES print_event BRACKETCLOSE
+
+    NAMES  shift, and go to state 47
+
+
+State 20
+
+   33 comp: BRACKETOPEN EQUALS . type type BRACKETCLOSE
+   34     | BRACKETOPEN EQUALS . type maths BRACKETCLOSE
+   35     | BRACKETOPEN EQUALS . maths type BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 48
+    INTS         shift, and go to state 49
+    VARS         shift, and go to state 50
+
+    type   go to state 51
+    maths  go to state 52
+
+
+State 21
+
+   38 math_ops: PLUSOP .
+
+    $default  reduce using rule 38 (math_ops)
+
+
+State 22
+
+   39 math_ops: MINUSOP .
+
+    $default  reduce using rule 39 (math_ops)
+
+
+State 23
+
+   40 math_ops: MULTOP .
+
+    $default  reduce using rule 40 (math_ops)
+
+
+State 24
+
+   41 math_ops: DIVOP .
+
+    $default  reduce using rule 41 (math_ops)
+
+
+State 25
+
+   13 elements: INTS .
+
+    $default  reduce using rule 13 (elements)
+
+
+State 26
+
+   12 elements: NAMES .
+
+    $default  reduce using rule 12 (elements)
+
+
+State 27
+
+   14 elements: VARS .
+
+    $default  reduce using rule 14 (elements)
+
+
+State 28
+
+   15 elements: elements . elements
+   16 events: BRACKETOPEN elements . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 53
+    INTS          shift, and go to state 25
+    NAMES         shift, and go to state 26
+    VARS          shift, and go to state 27
+
+    elements  go to state 54
+
+
+State 29
+
+   45 maths: BRACKETOPEN math_ops . math_elements math_elements BRACKETCLOSE
+
+    INTS  shift, and go to state 55
+    VARS  shift, and go to state 56
+
+    math_elements  go to state 57
+
+
+State 30
+
+   16 events: BRACKETOPEN . elements BRACKETCLOSE
+
+    INTS   shift, and go to state 25
+    NAMES  shift, and go to state 26
+    VARS   shift, and go to state 27
+
+    elements  go to state 28
+
+
+State 31
+
+    2 program: program events NL .
+
+    $default  reduce using rule 2 (program)
+
+
+State 32
+
+   17 events: events . events
+   17       | events events .
+
+    BRACKETOPEN  shift, and go to state 30
+
+    BRACKETOPEN  [reduce using rule 17 (events)]
+    $default     reduce using rule 17 (events)
+
+    events  go to state 32
+
+
+State 33
+
+    3 program: program deffacts NL .
+
+    $default  reduce using rule 3 (program)
+
+
+State 34
+
+   29 printout: BRACKETOPEN . PRINTOUT NAMES print_event BRACKETCLOSE
+
+    PRINTOUT  shift, and go to state 19
+
+
+State 35
+
+    9 program: program printout NL .
+
+    $default  reduce using rule 9 (program)
+
+
+State 36
+
+   30 printout: printout . printout
+   30         | printout printout .
+
+    BRACKETOPEN  shift, and go to state 34
+
+    BRACKETOPEN  [reduce using rule 30 (printout)]
+    $default     reduce using rule 30 (printout)
+
+    printout  go to state 36
+
+
+State 37
+
+    6 program: program comp NL .
+
+    $default  reduce using rule 6 (program)
+
+
+State 38
+
+    7 program: program test NL .
+
+    $default  reduce using rule 7 (program)
+
+
+State 39
+
+    4 program: program defrule NL .
+
+    $default  reduce using rule 4 (program)
+
+
+State 40
+
+    5 program: program maths NL .
+
+    $default  reduce using rule 5 (program)
+
+
+State 41
+
+    8 program: program bind NL .
+
+    $default  reduce using rule 8 (program)
+
+
+State 42
+
+   21 deffacts: BRACKETOPEN DEFFACTS NAMES . NL deffacts_events BRACKETCLOSE
+
+    NL  shift, and go to state 58
+
+
+State 43
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES . NL events NL test NL ARROW NL printout BRACKETCLOSE
+
+    NL  shift, and go to state 59
+
+
+State 44
+
+   33 comp: BRACKETOPEN . EQUALS type type BRACKETCLOSE
+   34     | BRACKETOPEN . EQUALS type maths BRACKETCLOSE
+   35     | BRACKETOPEN . EQUALS maths type BRACKETCLOSE
+
+    EQUALS  shift, and go to state 20
+
+
+State 45
+
+   36 test: BRACKETOPEN TEST comp . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 60
+
+
+State 46
+
+   47 bind: BRACKETOPEN BIND VARS . read BRACKETCLOSE
+   48     | BRACKETOPEN BIND VARS . INTS BRACKETCLOSE
+   49     | BRACKETOPEN BIND VARS . maths BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 61
+    INTS         shift, and go to state 62
+
+    maths  go to state 63
+    read   go to state 64
+
+
+State 47
+
+   29 printout: BRACKETOPEN PRINTOUT NAMES . print_event BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 65
+
+    print_event  go to state 66
+
+
+State 48
+
+   45 maths: BRACKETOPEN . math_ops math_elements math_elements BRACKETCLOSE
+
+    PLUSOP   shift, and go to state 21
+    MINUSOP  shift, and go to state 22
+    MULTOP   shift, and go to state 23
+    DIVOP    shift, and go to state 24
+
+    math_ops  go to state 29
+
+
+State 49
+
+   32 type: INTS .
+
+    $default  reduce using rule 32 (type)
+
+
+State 50
+
+   31 type: VARS .
+
+    $default  reduce using rule 31 (type)
+
+
+State 51
+
+   33 comp: BRACKETOPEN EQUALS type . type BRACKETCLOSE
+   34     | BRACKETOPEN EQUALS type . maths BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 48
+    INTS         shift, and go to state 49
+    VARS         shift, and go to state 50
+
+    type   go to state 67
+    maths  go to state 68
+
+
+State 52
+
+   35 comp: BRACKETOPEN EQUALS maths . type BRACKETCLOSE
+
+    INTS  shift, and go to state 49
+    VARS  shift, and go to state 50
+
+    type  go to state 69
+
+
+State 53
+
+   16 events: BRACKETOPEN elements BRACKETCLOSE .
+
+    $default  reduce using rule 16 (events)
+
+
+State 54
+
+   15 elements: elements . elements
+   15         | elements elements .
+
+    INTS   shift, and go to state 25
+    NAMES  shift, and go to state 26
+    VARS   shift, and go to state 27
+
+    INTS      [reduce using rule 15 (elements)]
+    NAMES     [reduce using rule 15 (elements)]
+    VARS      [reduce using rule 15 (elements)]
+    $default  reduce using rule 15 (elements)
+
+    elements  go to state 54
+
+
+State 55
+
+   43 math_elements: INTS .
+
+    $default  reduce using rule 43 (math_elements)
+
+
+State 56
+
+   42 math_elements: VARS .
+
+    $default  reduce using rule 42 (math_elements)
+
+
+State 57
+
+   44 math_elements: math_elements . math_elements
+   45 maths: BRACKETOPEN math_ops math_elements . math_elements BRACKETCLOSE
+
+    INTS  shift, and go to state 55
+    VARS  shift, and go to state 56
+
+    math_elements  go to state 70
+
+
+State 58
+
+   21 deffacts: BRACKETOPEN DEFFACTS NAMES NL . deffacts_events BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 71
+
+    deffacts_events  go to state 72
+
+
+State 59
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL . events NL test NL ARROW NL printout BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 30
+
+    events  go to state 73
+
+
+State 60
+
+   36 test: BRACKETOPEN TEST comp BRACKETCLOSE .
+
+    $default  reduce using rule 36 (test)
+
+
+State 61
+
+   45 maths: BRACKETOPEN . math_ops math_elements math_elements BRACKETCLOSE
+   46 read: BRACKETOPEN . READ BRACKETCLOSE
+
+    READ     shift, and go to state 74
+    PLUSOP   shift, and go to state 21
+    MINUSOP  shift, and go to state 22
+    MULTOP   shift, and go to state 23
+    DIVOP    shift, and go to state 24
+
+    math_ops  go to state 29
+
+
+State 62
+
+   48 bind: BRACKETOPEN BIND VARS INTS . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 75
+
+
+State 63
+
+   49 bind: BRACKETOPEN BIND VARS maths . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 76
+
+
+State 64
+
+   47 bind: BRACKETOPEN BIND VARS read . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 77
+
+
+State 65
+
+   27 print_event: BRACKETOPEN . print_contents BRACKETCLOSE
+
+    INTS     shift, and go to state 78
+    NAMES    shift, and go to state 79
+    VARS     shift, and go to state 80
+    STRINGS  shift, and go to state 81
+
+    print_contents  go to state 82
+
+
+State 66
+
+   28 print_event: print_event . print_event
+   29 printout: BRACKETOPEN PRINTOUT NAMES print_event . BRACKETCLOSE
+
+    BRACKETOPEN   shift, and go to state 65
+    BRACKETCLOSE  shift, and go to state 83
+
+    print_event  go to state 84
+
+
+State 67
+
+   33 comp: BRACKETOPEN EQUALS type type . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 85
+
+
+State 68
+
+   34 comp: BRACKETOPEN EQUALS type maths . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 86
+
+
+State 69
+
+   35 comp: BRACKETOPEN EQUALS maths type . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 87
+
+
+State 70
+
+   44 math_elements: math_elements . math_elements
+   44              | math_elements math_elements .
+   45 maths: BRACKETOPEN math_ops math_elements math_elements . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 88
+    INTS          shift, and go to state 55
+    VARS          shift, and go to state 56
+
+    INTS  [reduce using rule 44 (math_elements)]
+    VARS  [reduce using rule 44 (math_elements)]
+
+    math_elements  go to state 89
+
+
+State 71
+
+   18 deffacts_events: BRACKETOPEN . elements BRACKETCLOSE
+
+    INTS   shift, and go to state 25
+    NAMES  shift, and go to state 26
+    VARS   shift, and go to state 27
+
+    elements  go to state 90
+
+
+State 72
+
+   19 deffacts_events: deffacts_events . deffacts_events
+   20                | deffacts_events . NL deffacts_events
+   21 deffacts: BRACKETOPEN DEFFACTS NAMES NL deffacts_events . BRACKETCLOSE
+
+    BRACKETOPEN   shift, and go to state 71
+    BRACKETCLOSE  shift, and go to state 91
+    NL            shift, and go to state 92
+
+    deffacts_events  go to state 93
+
+
+State 73
+
+   17 events: events . events
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events . NL test NL ARROW NL printout BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 30
+    NL           shift, and go to state 94
+
+    events  go to state 32
+
+
+State 74
+
+   46 read: BRACKETOPEN READ . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 95
+
+
+State 75
+
+   48 bind: BRACKETOPEN BIND VARS INTS BRACKETCLOSE .
+
+    $default  reduce using rule 48 (bind)
+
+
+State 76
+
+   49 bind: BRACKETOPEN BIND VARS maths BRACKETCLOSE .
+
+    $default  reduce using rule 49 (bind)
+
+
+State 77
+
+   47 bind: BRACKETOPEN BIND VARS read BRACKETCLOSE .
+
+    $default  reduce using rule 47 (bind)
+
+
+State 78
+
+   23 print_contents: INTS .
+
+    $default  reduce using rule 23 (print_contents)
+
+
+State 79
+
+   24 print_contents: NAMES .
+
+    $default  reduce using rule 24 (print_contents)
+
+
+State 80
+
+   22 print_contents: VARS .
+
+    $default  reduce using rule 22 (print_contents)
+
+
+State 81
+
+   25 print_contents: STRINGS .
+
+    $default  reduce using rule 25 (print_contents)
+
+
+State 82
+
+   26 print_contents: print_contents . print_contents
+   27 print_event: BRACKETOPEN print_contents . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 96
+    INTS          shift, and go to state 78
+    NAMES         shift, and go to state 79
+    VARS          shift, and go to state 80
+    STRINGS       shift, and go to state 81
+
+    print_contents  go to state 97
+
+
+State 83
+
+   29 printout: BRACKETOPEN PRINTOUT NAMES print_event BRACKETCLOSE .
+
+    $default  reduce using rule 29 (printout)
+
+
+State 84
+
+   28 print_event: print_event . print_event
+   28            | print_event print_event .
+
+    BRACKETOPEN  shift, and go to state 65
+
+    BRACKETOPEN  [reduce using rule 28 (print_event)]
+    $default     reduce using rule 28 (print_event)
+
+    print_event  go to state 84
+
+
+State 85
+
+   33 comp: BRACKETOPEN EQUALS type type BRACKETCLOSE .
+
+    $default  reduce using rule 33 (comp)
+
+
+State 86
+
+   34 comp: BRACKETOPEN EQUALS type maths BRACKETCLOSE .
+
+    $default  reduce using rule 34 (comp)
+
+
+State 87
+
+   35 comp: BRACKETOPEN EQUALS maths type BRACKETCLOSE .
+
+    $default  reduce using rule 35 (comp)
+
+
+State 88
+
+   45 maths: BRACKETOPEN math_ops math_elements math_elements BRACKETCLOSE .
+
+    $default  reduce using rule 45 (maths)
+
+
+State 89
+
+   44 math_elements: math_elements . math_elements
+   44              | math_elements math_elements .
+
+    INTS  shift, and go to state 55
+    VARS  shift, and go to state 56
+
+    INTS      [reduce using rule 44 (math_elements)]
+    VARS      [reduce using rule 44 (math_elements)]
+    $default  reduce using rule 44 (math_elements)
+
+    math_elements  go to state 89
+
+
+State 90
+
+   15 elements: elements . elements
+   18 deffacts_events: BRACKETOPEN elements . BRACKETCLOSE
+
+    BRACKETCLOSE  shift, and go to state 98
+    INTS          shift, and go to state 25
+    NAMES         shift, and go to state 26
+    VARS          shift, and go to state 27
+
+    elements  go to state 54
+
+
+State 91
+
+   21 deffacts: BRACKETOPEN DEFFACTS NAMES NL deffacts_events BRACKETCLOSE .
+
+    $default  reduce using rule 21 (deffacts)
+
+
+State 92
+
+   20 deffacts_events: deffacts_events NL . deffacts_events
+
+    BRACKETOPEN  shift, and go to state 71
+
+    deffacts_events  go to state 99
+
+
+State 93
+
+   19 deffacts_events: deffacts_events . deffacts_events
+   19                | deffacts_events deffacts_events .
+   20                | deffacts_events . NL deffacts_events
+
+    BRACKETOPEN  shift, and go to state 71
+    NL           shift, and go to state 92
+
+    BRACKETOPEN  [reduce using rule 19 (deffacts_events)]
+    NL           [reduce using rule 19 (deffacts_events)]
+    $default     reduce using rule 19 (deffacts_events)
+
+    deffacts_events  go to state 93
+
+
+State 94
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL . test NL ARROW NL printout BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 100
+
+    test  go to state 101
+
+
+State 95
+
+   46 read: BRACKETOPEN READ BRACKETCLOSE .
+
+    $default  reduce using rule 46 (read)
+
+
+State 96
+
+   27 print_event: BRACKETOPEN print_contents BRACKETCLOSE .
+
+    $default  reduce using rule 27 (print_event)
+
+
+State 97
+
+   26 print_contents: print_contents . print_contents
+   26               | print_contents print_contents .
+
+    INTS     shift, and go to state 78
+    NAMES    shift, and go to state 79
+    VARS     shift, and go to state 80
+    STRINGS  shift, and go to state 81
+
+    INTS      [reduce using rule 26 (print_contents)]
+    NAMES     [reduce using rule 26 (print_contents)]
+    VARS      [reduce using rule 26 (print_contents)]
+    STRINGS   [reduce using rule 26 (print_contents)]
+    $default  reduce using rule 26 (print_contents)
+
+    print_contents  go to state 97
+
+
+State 98
+
+   18 deffacts_events: BRACKETOPEN elements BRACKETCLOSE .
+
+    $default  reduce using rule 18 (deffacts_events)
+
+
+State 99
+
+   19 deffacts_events: deffacts_events . deffacts_events
+   20                | deffacts_events . NL deffacts_events
+   20                | deffacts_events NL deffacts_events .
+
+    BRACKETOPEN  shift, and go to state 71
+    NL           shift, and go to state 92
+
+    BRACKETOPEN  [reduce using rule 20 (deffacts_events)]
+    NL           [reduce using rule 20 (deffacts_events)]
+    $default     reduce using rule 20 (deffacts_events)
+
+    deffacts_events  go to state 93
+
+
+State 100
+
+   36 test: BRACKETOPEN . TEST comp BRACKETCLOSE
+
+    TEST  shift, and go to state 17
+
+
+State 101
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test . NL ARROW NL printout BRACKETCLOSE
+
+    NL  shift, and go to state 102
+
+
+State 102
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL . ARROW NL printout BRACKETCLOSE
+
+    ARROW  shift, and go to state 103
+
+
+State 103
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL ARROW . NL printout BRACKETCLOSE
+
+    NL  shift, and go to state 104
+
+
+State 104
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL ARROW NL . printout BRACKETCLOSE
+
+    BRACKETOPEN  shift, and go to state 34
+
+    printout  go to state 105
+
+
+State 105
+
+   30 printout: printout . printout
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL ARROW NL printout . BRACKETCLOSE
+
+    BRACKETOPEN   shift, and go to state 34
+    BRACKETCLOSE  shift, and go to state 106
+
+    printout  go to state 36
+
+
+State 106
+
+   37 defrule: BRACKETOPEN DEFRULE NAMES NL events NL test NL ARROW NL printout BRACKETCLOSE .
+
+    $default  reduce using rule 37 (defrule)

@@ -1,0 +1,11 @@
+(deffacts static-facts
+ ;;; food declarations
+ (food-at 4 2)
+ (food-at 5 2))
+ 
+(deffacts dynamic-facts
+ ;;;pacman declaration
+ (pacman-at 6 2))
+
+(+* 6 7)
+

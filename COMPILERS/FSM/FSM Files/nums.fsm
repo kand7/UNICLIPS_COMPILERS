@@ -1,0 +1,49 @@
+START = N0
+
+N0: - + -> N1
+	1-9 -> N2
+	0 -> N3
+	* -> BAD
+
+N1: 0 -> N6
+	1-9 -> N2
+	* -> BAD
+	
+N2:	\n -> GOOD
+	E e -> N4
+	0-9 -> N2
+	. -> N5
+	* -> BAD
+
+N3: \n -> GOOD
+	E e -> N4
+	. -> N5
+	* -> BAD
+
+N4: 0 -> N8
+	- + -> N9:
+	1-9 -> N10
+	* -> BAD
+
+N5: 0-9 -> N7
+	* -> BAD
+
+N6: . -> N5
+	E e -> N4
+	* -> BAD
+
+N7:	0-9 -> N7
+	\n -> GOOD
+	E e -> N4
+	* -> BAD
+
+N8: \n -> GOOD
+	* -> BAD
+
+N9:	1-9 -> N10
+	* -> BAD
+
+N10: 0-9 -> N10
+	 \n -> GOOD
+	 * -> BAD
+GOOD(OK):

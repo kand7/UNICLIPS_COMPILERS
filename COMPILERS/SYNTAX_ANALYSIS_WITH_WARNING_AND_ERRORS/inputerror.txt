@@ -1,0 +1,86 @@
+;Comment Test.
+
+;Events.
+(color A is blue)
+(cube A on table)
+(color B is white)
+(cube B on A)
+(number_of_cubes 2)
+(Extra bracket))
+(color C is !)
+
+;Deffacts.
+(deffacts CUBES
+	(color A is blue)
+	(cube A on table)
+	(color B is white)
+	(cube B on A)
+	(number_of_cubes 2))
+
+(deffacts wrong example
+	(color A is blue)
+	(cube A on table)
+	(color B is white)
+	(cube B on A)
+	(number_of_cubes 2))
+
+;Defrule.
+(defrule move-up
+	(cube A on ?something)(cube B on A)(number_of_cubes ?num)
+	(test (= ?num 2))
+	->
+	(printout t(?something " is under A") ("A is under B") ("there are 2 cubes"))(printout t1("hello"))))
+
+;Maths.
+(- +3 -20 ?x1)
+(- + 3 4)
+(+ 4)
+(* ?id1 ?id2)
+(/ 10 -2 -1)
+(-+ 20 12 3)
+
+;Comp
+(= ?num 2))
+(= 2 ?num ?3-elements)
+(= 100 (+ ?num 2))
+(= (+ ?num 2) ?x)
+
+;Test
+(test (= ?num 2))
+(test =( ?num 2))
+
+;Bind
+(bind ?x (read))
+(bind ?x 4)
+(bind ?x (+ 1 ?num))
+(bind 2 ?x)
+
+(deffacts static-facts
+	;;; food declarations
+	(food-at 4 2)
+	(food-at 5 2)
+)
+ 
+(deffacts dynamic-facts
+	;;;pacman declaration
+	(pacman-at 6 2)
+)
+
+(defrule move-UP
+    (pacman-at ?x ?y)
+    (food-at ?z ?y)
+    (test (= ?z (- ?x 1)))
+    ->
+    ;;;;prints just a message
+    (printout t ("pacman has reached food"))
+)
+
+;No brackets.
+->
+printout
+test
+12345
+(
+)
+?var
+nAmE-tEsT

@@ -1,0 +1,17 @@
+REGEX A2 - A
+
+Singed Integers -> (\+|-)?\d
+		   (\+|-)?[0-9]*
+
+Signed Floating Points with e -> [-+]?([0-9]*[.])?[0-9]+([eE][-+]?[0-9]+)?
+
+Names -> [a-zA-Z]+((-|_)*[0-9]*[a-zA-z]*)*
+
+Variables -> \?([0-9]*[a-zA-Z]*)+	
+
+Strings -> "[^\"\\n"]*(\\(n|\\|\")?[^\"\\n"]*)*"
+
+Comments -> v1 ;[^;\s]+ (;;this is correct)
+	    v2 ;.+	(;this is correct)
+
+Breaks -> (\s+)

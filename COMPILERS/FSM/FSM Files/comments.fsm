@@ -1,0 +1,8 @@
+START = COM0
+
+COM0:	; -> COM1
+	* -> BAD
+
+COM1:  	\n -> GOOD
+ 	* -> COM1
+GOOD(OK):

@@ -1,0 +1,17 @@
+START = INT1
+
+INT1: 	1-9 -> INT3
+	- + -> INT2
+ 	0 -> INT0
+ 	*  -> BAD
+
+INT2: 	1-9 -> INT3
+ 	* -> BAD
+
+INT3: 	0-9 -> INT3 
+ 	\n -> GOOD
+ 	* -> BAD
+
+INT0:  \n -> GOOD
+ 	* -> BAD
+GOOD(OK):
